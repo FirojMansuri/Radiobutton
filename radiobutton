@@ -1,0 +1,75 @@
+import React, { useState } from 'react'
+import { TouchableOpacity, View, Text, StyleSheet } from 'react-native'
+
+const Radio = () => {
+    const skills=[
+        {
+            name:'python',
+            id:1
+        },
+        {
+            name:'javascript',
+            id:2
+        },
+        {
+            name:'Java',
+            id:3
+        },
+        {
+            name:'C++',
+            id:4
+        }
+    ]
+    const [showradio, setShowRadio]=useState(1)
+    return (
+        <View style={styles.main}>
+            {
+                skills.map((item,index)=>
+                <TouchableOpacity onPress={()=>setShowRadio(item.id)}
+                key={index}
+                >
+                <View style={styles.radioWrapper}>
+                    <View style={styles.radio}>
+                        { showradio === item.id ? <View style={styles.radiobg}></View> :null}
+                    </View>
+                    <Text style={styles.radioText}>{item.name}</Text>
+                </View>
+            </TouchableOpacity>
+                )
+            }
+
+            
+        </View>
+    )
+};
+const styles = StyleSheet.create({
+    main: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    radioText: {
+        fontSize: 20,
+    },
+    radio: {
+        height: 35,
+        width: 35,
+        borderColor: 'black',
+        borderWidth: 2,
+        borderRadius: 17.5,
+        margin: 10,
+    },
+    radioWrapper: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    radiobg:{
+        backgroundColor:'#000',
+        height:30,
+        width:30,
+        borderRadius:15,
+        margin:3,
+    }
+})
+
+export default Radio
