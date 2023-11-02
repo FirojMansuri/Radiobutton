@@ -1,0 +1,33 @@
+import React from 'react';
+import {Button, Pressable,StyleSheet,Text,view} from 'react-native'
+const PressableButton =()=>{
+    return(
+        <View style={styls.maindata}>
+            <Pressable 
+            onLongPress={()=>{console.warn('long prss')}}
+            onPressIn={()=>{console.warn('prss in')}}
+            onPressOut={()=>{console.warn('press out')}}
+            delayLongPress={1000}
+            // delayLongPress={()=>{console.warn('1000')}}
+            >
+                <Text style={styls.pressbutton}>
+                    button
+                </Text>
+            </Pressable>
+        </View>
+    )
+};
+const styls= StyleSheet.create({
+    maindata:{
+        flex:1,
+        justifyContent:'center'
+    },
+    pressbutton:{
+        backgroundColor:'#fdd5',
+        color:'#2ff',
+        padding:10,
+        margin:10,
+        borderRadius:2,
+        fontSize:20
+    }
+})
